@@ -175,7 +175,7 @@ function priorityStrength(req) {
     var powerups = req.bonusTiles;
     var closest = undefined;
     //get the closest health powerup
-    for (int i = 0; i < powerups.length; i++) {
+    for (var i = 0; i < powerups.length; i++) {
 
         if (powerups[i].type === "strength"){
             powerup = powerups[i];
