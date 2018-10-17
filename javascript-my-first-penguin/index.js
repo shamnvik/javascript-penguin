@@ -83,6 +83,8 @@ function action(req) {
     return {};
 }
 
+
+
 function infoReceived() {
     let penguinName = "Pingu";
     let teamName = "Bouvet";

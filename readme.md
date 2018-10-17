@@ -22,6 +22,10 @@ function priorityEnemy()
   -> int: prioritering
   -> String : kommando
 
+function priorityEvade()
+  -> int: prioritering
+  -> String : kommando
+
 
 function doMove()
   Sjekker alle priorityMetodene, og gjennomfører bevegelsen som har høyest prioritet
