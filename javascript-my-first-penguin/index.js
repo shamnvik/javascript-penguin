@@ -112,11 +112,6 @@ function priorityWeaponRange(body){
   }
 
   return returnValue;
-  }
-
-
-
-  return rangeBonusPriority
 }
 
 module.exports = function (context, req) {
