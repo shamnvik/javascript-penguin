@@ -115,6 +115,34 @@ function priorityWeaponRange(body){
   return returnValue;
 }
 
+function priorityWeaponDamage(body){
+  var bonusTiles = body.bonusTiles;
+  var weaponDamageBonus;
+  var rangeBonusPriority = [];
+  var returnValue = [];
+
+  for each (var bonus in bonusTiles){
+    if(bonus.type === "weapon-power"){
+      var priority = 100;
+      priority = distance(body, body.enemies.[0].x, body.enemies.[0].y);
+      priority = priority * 10;
+
+      rangeBonusPriority.push([priority,bonus);
+    }
+  }
+
+  var highestPriority = 100;
+  for each (var rangeBonus in rangeBonusPriority){
+    if(rangeBonus[0] < highestPriority){
+      highestPriority = rangeBonus[0];
+      returnValue[0] = highestPriority;
+      returnValue[1] = findPathTo(body,bonus.x,bonus.y);
+    }
+  }
+
+  return returnValue;
+}
+
 module.exports = function (context, req) {
     context.log('JavaScript HTTP trigger function processed a request.');
     let response = action(req);
@@ -159,7 +187,7 @@ function priorityStrength(req) {
             }
         }
     }
-    
+
     var returnObject = {
         "priority" :  100,
         "command"  :  PASS
@@ -168,7 +196,7 @@ function priorityStrength(req) {
     if (closest !== undefined){
         returnObject.priority = math.floor(distanceTo(req, closest.x, closest.y));
         if (my.strength < 50){
-            returnObject.priority = 1;    
+            returnObject.priority = 1;
             returnObject.command = findPathTo(closest.x, closest.y);
         }else if (my.strength < 100){
             returnObject.priority = math.floor(distanceTo(req, closest.x, closest.y));
@@ -176,7 +204,7 @@ function priorityStrength(req) {
             returnObject.priority = 7 * math.floor(distanceTo(req, closest.x, closest.y));
         }else{
             returnObject.priority = 10 * math.floor(distanceTo(req, closest.x, closest.y));
-        } 
+        }
     }
     return returnObject
 

@@ -17,15 +17,15 @@ Penguin strength: 300
 Ammo: 1000
 
 
-function priorityWeaponRange()
+function priorityWeaponRange() - Sondre
   -> int: prioritering
   -> String : kommando
 
-function priorityStrength()
+function priorityStrength() - Hilmar
   -> int: prioritering
   -> String : kommando
 
-function priorityWeaponDamage()
+function priorityWeaponDamage() - Sondre
   -> int: prioritering
   -> String : kommando
 
@@ -46,5 +46,5 @@ function priorityEvade()
   -> String : kommando
 
 
-function doMove()
+function doMove() -Sondre
   Sjekker alle priorityMetodene, og gjennomfører bevegelsen som har høyest prioritet
