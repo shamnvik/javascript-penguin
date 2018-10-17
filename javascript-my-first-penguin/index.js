@@ -75,7 +75,6 @@ module.exports = function (context, req) {
 };
 
 function action(req) {
-    console.log("test");
     if (req.params.query == "command") {
         return commandReceived(req.body);
     } else if (req.params.query == "info") {
