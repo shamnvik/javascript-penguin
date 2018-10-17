@@ -107,11 +107,11 @@ function priorityWeaponRange(body){
     if(rangeBonus[0] < highestPriority){
       highestPriority = rangeBonus[0];
       returnValue[0] = highestPriority;
-      returnValue[1] = findPathTo(body,bonus.x,bonux.y);
+      returnValue[1] = findPathTo(body,bonus.x,bonus.y);
     }
   }
 
-  return returValue;
+  return returnValue;
   }
 
 
