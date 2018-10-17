@@ -88,16 +88,35 @@ function doMove(body){
 }
 
 function priorityWeaponRange(body){
-  let bonusTiles = body.bonusTiles;
+  var bonusTiles = body.bonusTiles;
   var weaponRangeBonus;
-  let rangeBonus;
+  var rangeBonusPriority = [];
+  var returnValue = [];
+
   for each (var bonus in bonusTiles){
     if(bonus.type === "weapon-range"){
-      weapon.rangeBonus,push(bonus);
+      var priority = 100;
+      priority = distance(body, body.enemies.[0].x, body.enemies.[0].y);
+      priority = priority * 10;
+
+      rangeBonusPriority.push([priority,bonus);
+    }
+
+  var highestPriority = 100;
+  for each (var rangeBonus in rangeBonusPriority){
+    if(rangeBonus[0] < highestPriority){
+      highestPriority = rangeBonus[0];
+      returnValue[0] = highestPriority;
+      returnValue[1] = findPathTo(body,bonus.x,bonux.y);
     }
   }
 
-  
+  return returValue;
+  }
+
+
+
+  return rangeBonusPriority
 }
 
 module.exports = function (context, req) {
