@@ -64,6 +64,42 @@ function commandReceived(body) {
     return { command: response};
 }
 
+function doMove(body){
+
+  var priorities = [];
+  var highestPriority = 100;
+  var nextMove = PASS;
+
+  priorities.push(priorityWeaponRange(body));
+  priorities.push(priorityStrength());
+  priorities.push(priorityWeaponDamage());
+  priorities.push(priorityStrength());
+  priorities.push(priorityFire());
+  priorities.push(priorityEnemy());
+  priorities.push(priorityEvade());
+
+  for each (var priority in priorities){
+    if(priority[0] < highestPriority){
+      highestPriority = priority[0];
+      nextMove = priority[1];
+    }
+  }
+  return nextMove;
+}
+
+function priorityWeaponRange(body){
+  let bonusTiles = body.bonusTiles;
+  var weaponRangeBonus;
+  let rangeBonus;
+  for each (var bonus in bonusTiles){
+    if(bonus.type === "weapon-range"){
+      weapon.rangeBonus,push(bonus);
+    }
+  }
+
+  
+}
+
 module.exports = function (context, req) {
     context.log('JavaScript HTTP trigger function processed a request.');
     let response = action(req);
@@ -76,12 +112,14 @@ module.exports = function (context, req) {
 
 function action(req) {
     if (req.params.query == "command") {
-        return commandReceived(req.body);
+        return doMove(req.body);
     } else if (req.params.query == "info") {
         return infoReceived();
     }
     return {};
 }
+
+
 
 function infoReceived() {
     let penguinName = "Pingu";

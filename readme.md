@@ -1,3 +1,6 @@
+API :
+https://bouvetpenguinsondre.azurewebsites.net/api/
+
 function priorityWeaponRange()
   -> int: prioritering
   -> String : kommando
@@ -19,6 +22,10 @@ function priorityFire()
   -> String : kommando
 
 function priorityEnemy()
+  -> int: prioritering
+  -> String : kommando
+
+function priorityEvade()
   -> int: prioritering
   -> String : kommando
 
