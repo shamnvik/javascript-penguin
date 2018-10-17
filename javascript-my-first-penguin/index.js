@@ -101,6 +101,7 @@ function priorityWeaponRange(body){
 
       rangeBonusPriority.push([priority,bonus);
     }
+  }
 
   var highestPriority = 100;
   for each (var rangeBonus in rangeBonusPriority){
