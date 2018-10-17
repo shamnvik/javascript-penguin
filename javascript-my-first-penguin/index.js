@@ -209,3 +209,43 @@ function priorityStrength(req) {
     return returnObject
 
 }
+
+function priorityFire(body){
+  var my = body.you;
+  var fire = body.fire;
+  var priority = 100;
+  var command = PASS;
+  var returnValue = []
+
+  for (var i = 0; i < fire.length; i++) {
+    if (fire[i].x == my.x && fire[i].y = my.y{
+      priority = 0;
+      command = escapeFire(body);
+    }else{
+      priority = 5;
+      command = escapeFire(body);
+    }
+  }
+  returnValue[0] = priority;
+  returnValue[1] = command;
+
+  return returnValue;
+}
+
+function escapeFire(body){
+  var my = body.you;
+  var fire = body.fire;
+  var command = PASS;
+  for (var i = 0; i < fire.length; i++) {
+      if (!fire[i].x == my.x-1 || !doesCellContainWall(body.walls, my.x-1, my.y)){
+        command = MOVE_LEFT[my.direction];
+      } else if (!fire[i].x == my.x+1 || !doesCellContainWall(body.walls, my.x+1, my.y)){
+        command = MOVE_RIGHT[my.direction];
+      } else if (!fire[i].y-1 == my.y || !doesCellContainWall(body.walls, my.x, my.y-1)){
+        command = MOVE_DOWN[my.direction];
+      } else if (!fire[i].y+1 == my.y || !doesCellContainWall(body.walls, my.x, my.y+1)){
+        command = MOVE_UP[my.direction];
+      }
+  }
+  return command;
+}
