@@ -20,7 +20,7 @@ function moveTowardsPoint(body, pointX, pointY) {
     let penguinPositionX = body.you.x;
     let penguinPositionY = body.you.y;
     let plannedAction = PASS;
-    
+
     if (penguinPositionX < pointX) {
         plannedAction =  MOVE_RIGHT[body.you.direction];
     } else if (penguinPositionX > pointX) {
@@ -66,7 +66,7 @@ function commandReceived(body) {
 
 module.exports = function (context, req) {
     context.log('JavaScript HTTP trigger function processed a request.');
-    let response = action(req);    
+    let response = action(req);
     context.res = {
         headers: {"Content-Type": 'application/json'},
         body: response
@@ -75,6 +75,7 @@ module.exports = function (context, req) {
 };
 
 function action(req) {
+  console.log(req);
     if (req.params.query == "command") {
         return commandReceived(req.body);
     } else if (req.params.query == "info") {
