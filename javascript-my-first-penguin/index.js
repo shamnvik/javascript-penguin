@@ -89,3 +89,34 @@ function infoReceived() {
 
     return {name: penguinName, team: teamName};
 }
+function priorityStrength(req) {
+    var CRITICAL_STRENGTH_THRESHOLD = 50;
+    var my = req.you;
+    var powerups = req.bonusTiles;
+    var closest = undefined;
+    //get the closest health powerup
+    for (int i = 0; i < powerups.length; i++){
+
+        if (powerups[i].type === "strength"){
+            powerup = powerups[i];
+            x = powerup.x;
+            y = powerup.y;
+            if ((distanceTo(req, x, y) < distanceTo(req, closest.x, closest.y)) || closest === undefined  ){
+                closest = powerup;
+            }
+        }
+    }
+    var returnObject = {
+        "priority" :  100,
+        "command"  :  PASS
+    }
+    if (closest !== undefined){
+        var priority = math.floor(distanceTo(req, closest.x, closest.y));
+        if (my.strength < CRITICAL_STRENGTH_THRESHOLD){
+            returnObject.priority = 0;    
+            
+        
+        }
+    }
+
+}
