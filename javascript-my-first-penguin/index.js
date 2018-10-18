@@ -66,7 +66,7 @@ function commandReceived(body) {
 
 function doMove(body){
 
-  var priorities = Array(2);
+  var priorities = [];
   var highestPriority = 100;
   var nextMove = PASS;
 
@@ -82,6 +82,13 @@ function doMove(body){
   // priorities.push(priorityEnemy());
   // priorities.push(priorityEvade());
   //
+
+      for (var i = 0; i < priorities.length; i++) {
+        nextMove = priorities[i][1];
+      }
+
+
+
   // for each (var priority in priorities){
   //   if(priority[0] < highestPriority){
   //     highestPriority = priority[0];
