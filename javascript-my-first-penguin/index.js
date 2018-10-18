@@ -249,8 +249,8 @@ function priorityWeaponRange(body){
 
   for (i = 0; i < rangeBonusPriority.length; i++){
     var rangeBonus = rangeBonusPriority[i];
-    if(rangeBonus[0*i] < highestPriority){
-      highestPriority = rangeBonus[0*i];
+    if(rangeBonus[0] < highestPriority){
+      highestPriority = rangeBonus[0];
       returnValue[0] = highestPriority;
       //returnValue[1] = findPathTo(body,bonus.x,bonus.y);//TODO
       returnValue[1] = MOVE_LEFT[body.you.direction]; //TODO
