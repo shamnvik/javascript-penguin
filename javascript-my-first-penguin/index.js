@@ -86,16 +86,17 @@ function doMove(body){
       // for (var i = 0; i < priorities.length; i++) {
       //   nextMove = priorities[i][1];
       // }
-  var test = priorities[0];
-  nextMove = test[1];
+  // var test = priorities[0];
+  // nextMove = test[1];
 
 
-  // for each (var priority in priorities){
-  //   if(priority[0] < highestPriority){
-  //     highestPriority = priority[0];
-  //     nextMove = priority[1];
-  //   }
-  // }
+  for (var i = 0; i < priorities.length; i++){
+    var priority = priorities[0];
+    if(priority[0] < highestPriority){
+      highestPriority = priority[0];
+      nextMove = priority[1];
+    }
+
   return { command: nextMove};
 }
 
