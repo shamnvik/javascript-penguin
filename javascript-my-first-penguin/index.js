@@ -139,7 +139,7 @@ function priorityWeaponRange(body){
   //   }
   // }
   //
-  // var highestPriority = 100;
+  var highestPriority = 100;
   returnValue[0] = highestPriority;
   returnValue[1] = MOVE_UP[body.you.direction];
 
