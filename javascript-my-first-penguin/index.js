@@ -158,7 +158,7 @@ module.exports = function(context, req) {
   // nextMove = test[1];
 
 
-  for (var i = 0; i < priorities.length; i++){
+  for (i = 0; i < priorities.length; i++){
     var priority = priorities[0];
     if(priority[0] < highestPriority){
       highestPriority = priority[0];
