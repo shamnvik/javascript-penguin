@@ -5,14 +5,34 @@ const RETREAT = "retreat";
 const SHOOT = "shoot";
 const PASS = "pass";
 
-const MOVE_UP =  {"top" : ADVANCE, "bottom" : ROTATE_LEFT, "right" : ROTATE_LEFT ,"left" : ROTATE_RIGHT };
-const MOVE_DOWN =  {"top" : ROTATE_LEFT, "bottom" : ADVANCE, "right" : ROTATE_RIGHT ,"left" : ROTATE_LEFT };
-const MOVE_RIGHT = {"top" : ROTATE_RIGHT, "bottom" : ROTATE_LEFT, "right" : ADVANCE ,"left" : ROTATE_LEFT };
-const MOVE_LEFT = {"top" : ROTATE_LEFT, "bottom" : ROTATE_RIGHT, "right" : ROTATE_RIGHT,"left" : ADVANCE };
+const MOVE_UP = {
+    "top": ADVANCE,
+    "bottom": ROTATE_LEFT,
+    "right": ROTATE_LEFT,
+    "left": ROTATE_RIGHT
+};
+const MOVE_DOWN = {
+    "top": ROTATE_LEFT,
+    "bottom": ADVANCE,
+    "right": ROTATE_RIGHT,
+    "left": ROTATE_LEFT
+};
+const MOVE_RIGHT = {
+    "top": ROTATE_RIGHT,
+    "bottom": ROTATE_LEFT,
+    "right": ADVANCE,
+    "left": ROTATE_LEFT
+};
+const MOVE_LEFT = {
+    "top": ROTATE_LEFT,
+    "bottom": ROTATE_RIGHT,
+    "right": ROTATE_RIGHT,
+    "left": ADVANCE
+};
 
 function moveTowardsCenterOfMap(body) {
-    let centerPointX = Math.floor((body.mapWidth)/2);
-    let centerPointY = Math.floor((body.mapHeight)/2);
+    let centerPointX = Math.floor((body.mapWidth) / 2);
+    let centerPointY = Math.floor((body.mapHeight) / 2);
     return moveTowardsPoint(body, centerPointX, centerPointY);
 }
 
@@ -22,7 +42,7 @@ function moveTowardsPoint(body, pointX, pointY) {
     let plannedAction = PASS;
 
     if (penguinPositionX < pointX) {
-        plannedAction =  MOVE_RIGHT[body.you.direction];
+        plannedAction = MOVE_RIGHT[body.you.direction];
     } else if (penguinPositionX > pointX) {
         plannedAction = MOVE_LEFT[body.you.direction];
     } else if (penguinPositionY < pointY) {
@@ -44,7 +64,7 @@ function doesCellContainWall(walls, x, y) {
 }
 
 function wallInFrontOfPenguin(body) {
-    switch(body.you.direction) {
+    switch (body.you.direction) {
         case "top":
             return doesCellContainWall(body.walls, body.you.x, --body.you.y);
         case "bottom":
@@ -61,65 +81,69 @@ function wallInFrontOfPenguin(body) {
 function commandReceived(body) {
     let response = PASS;
     response = moveTowardsCenterOfMap(body);
-    return { command: response};
+    return {
+        command: response
+    };
 }
 
-function doMove(body){
+function doMove(body) {
 
-  var priorities = [];
-  var highestPriority = 100;
-  var nextMove = PASS;
+    var priorities = [];
+    var highestPriority = 100;
+    var nextMove = PASS;
 
-  priorities.push(priorityWeaponRange(body));
-  priorities.push(priorityStrength());
-  priorities.push(priorityWeaponDamage());
-  priorities.push(priorityStrength());
-  priorities.push(priorityFire());
-  priorities.push(priorityEnemy());
-  priorities.push(priorityEvade());
+    priorities.push(priorityWeaponRange(body));
+    priorities.push(priorityStrength());
+    priorities.push(priorityWeaponDamage());
+    priorities.push(priorityStrength());
+    priorities.push(priorityFire());
+    priorities.push(priorityEnemy());
+    priorities.push(priorityEvade());
 
-  for each (var priority in priorities){
-    if(priority[0] < highestPriority){
-      highestPriority = priority[0];
-      nextMove = priority[1];
+    for each(var priority in priorities) {
+        if (priority[0] < highestPriority) {
+            highestPriority = priority[0];
+            nextMove = priority[1];
+        }
     }
-  }
-  return nextMove;
+    return nextMove;
 }
 
-function priorityWeaponRange(body){
-  var bonusTiles = body.bonusTiles;
-  var weaponRangeBonus;
-  var rangeBonusPriority = [];
-  var returnValue = [];
+function priorityWeaponRange(body) {
+    var bonusTiles = body.bonusTiles;
+    var weaponRangeBonus;
+    var rangeBonusPriority = [];
+    var returnValue = [];
 
-  for each (var bonus in bonusTiles){
-    if(bonus.type === "weapon-range"){
-      var priority = 100;
-      priority = distance(body, body.enemies.[0].x, body.enemies.[0].y);
-      priority = priority * 10;
+    for each(var bonus in bonusTiles) {
+        if (bonus.type === "weapon-range") {
+            var priority = 100;
+            priority = distance(body, body.enemies.[0].x, body.enemies.[0].y);
+            priority = priority * 10;
 
-      rangeBonusPriority.push([priority,bonus);
+            rangeBonusPriority.push([priority, bonus);
+        }
     }
-  }
 
-  var highestPriority = 100;
-  for each (var rangeBonus in rangeBonusPriority){
-    if(rangeBonus[0] < highestPriority){
-      highestPriority = rangeBonus[0];
-      returnValue[0] = highestPriority;
-      returnValue[1] = findPathTo(body,bonus.x,bonus.y);
+    var highestPriority = 100;
+    for each(var rangeBonus in rangeBonusPriority) {
+        if (rangeBonus[0] < highestPriority) {
+            highestPriority = rangeBonus[0];
+            returnValue[0] = highestPriority;
+            returnValue[1] = findPathTo(body, bonus.x, bonus.y);
+        }
     }
-  }
 
-  return returnValue;
+    return returnValue;
 }
 
-module.exports = function (context, req) {
+module.exports = function(context, req) {
     context.log('JavaScript HTTP trigger function processed a request.');
     let response = action(req);
     context.res = {
-        headers: {"Content-Type": 'application/json'},
+        headers: {
+            "Content-Type": 'application/json'
+        },
         body: response
     };
     context.done();
@@ -140,8 +164,47 @@ function infoReceived() {
     let penguinName = "Pingu";
     let teamName = "Bouvet";
 
-    return {name: penguinName, team: teamName};
+    return {
+        name: penguinName,
+        team: teamName
+    };
 }
+
+function priorityEvade(req) {
+    let enemies = req.enemies;
+    let my = req.you;
+    var returnObject = {
+        "priority": 100,
+        "command": ADVANCE
+    }
+    if (enemies.length > 0) {
+        //are we in immediate danger?
+
+        for (var i = 0; i < enemies.length; i++) {
+            var enemy = req.enemies[i]
+            if (my.x == enemy.x || my.y == enemy.y) {
+                if (my.strength < enemy.strength) {
+                    var canBeShot = (my.x < enemy.x && enemy.direction ==
+                        LEFT) || (my.x > enemy.x && enemy.direction ==
+                        RIGHT) || (my.y < enemy.y && enemy.direction ==
+                        TOP) || (my.y < enemy.y && enemy.direction ==
+                        BOTTOM);
+                    if (canBeShot) {
+                        returnObject.priority = 1;
+                        if (wallInFrontOfPenguin) {
+                            returnObject.command = RETREAT;
+                        } else {
+                            returnObject.command = ADVANCE;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    return [returnObject.priority, returnObject.command];
+}
+
+
 function priorityStrength(req) {
     var my = req.you;
     var powerups = req.bonusTiles;
@@ -149,35 +212,39 @@ function priorityStrength(req) {
     //get the closest health powerup
     for (var i = 0; i < powerups.length; i++) {
 
-        if (powerups[i].type === "strength"){
+        if (powerups[i].type === "strength") {
             powerup = powerups[i];
             x = powerup.x;
             y = powerup.y;
-
-            if ((distanceTo(req, x, y) < distanceTo(req, closest.x, closest.y)) || closest === undefined  ){
+            if ((distanceTo(req, x, y) < distanceTo(req, closest.x, closest
+                    .y)) || closest === undefined) {
                 closest = powerup;
             }
         }
     }
-    
+
     var returnObject = {
-        "priority" :  100,
-        "command"  :  PASS
+        "priority": 100,
+        "command": PASS
     }
 
-    if (closest !== undefined){
-        returnObject.priority = math.floor(distanceTo(req, closest.x, closest.y));
-        if (my.strength < 50){
-            returnObject.priority = 1;    
+    if (closest !== undefined) {
+        returnObject.priority = math.floor(distanceTo(req, closest.x,
+            closest.y));
+        if (my.strength < 50) {
+            returnObject.priority = 1;
             returnObject.command = findPathTo(closest.x, closest.y);
-        }else if (my.strength < 100){
-            returnObject.priority = math.floor(distanceTo(req, closest.x, closest.y));
-        }else if (my.strength < 200){
-            returnObject.priority = 7 * math.floor(distanceTo(req, closest.x, closest.y));
-        }else{
-            returnObject.priority = 10 * math.floor(distanceTo(req, closest.x, closest.y));
-        } 
+        } else if (my.strength < 100) {
+            returnObject.priority = math.floor(distanceTo(req, closest.x,
+                closest.y));
+        } else if (my.strength < 200) {
+            returnObject.priority = 7 * math.floor(distanceTo(req, closest.x,
+                closest.y));
+        } else {
+            returnObject.priority = 10 * math.floor(distanceTo(req, closest
+                .x, closest.y));
+        }
     }
-    return returnObject
+    return [returnObject.priority, returnObject.command];
 
 }
