@@ -241,7 +241,7 @@ function priorityWeaponRange(body){
     if(bonusTiles[i].type ==="weapon-range"){
       var priority = 0;
       // rangeBonusPriority.push(bonusTiles[i].priority);
-      rangeBonusPriority = 0;
+      rangeBonusPriority.push(0);
       rangeBonusPriority.push(MOVE_RIGHT[body.you.direction]); //TODO
 
     }
