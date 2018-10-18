@@ -72,7 +72,7 @@ function doMove(body){
 
   nextMove = MOVE_DOWN[body.you.direction];
 
-  alert("test");
+  
 
   //priorities.push(priorityWeaponRange(body));
   // priorities.push(priorityStrength());
