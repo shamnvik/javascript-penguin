@@ -4,6 +4,10 @@ const ADVANCE = "advance";
 const RETREAT = "retreat";
 const SHOOT = "shoot";
 const PASS = "pass";
+const ROLL_UP =  {"top" : SHOOT, "bottom" : ROTATE_LEFT, "right" : ROTATE_LEFT ,"left" : ROTATE_RIGHT };
+const ROLL_DOWN =  {"top" : ROTATE_LEFT, "bottom" : SHOOT, "right" : ROTATE_RIGHT ,"left" : ROTATE_LEFT };
+const ROLL_RIGHT = {"top" : ROTATE_RIGHT, "bottom" : ROTATE_LEFT, "right" : SHOOT ,"left" : ROTATE_LEFT };
+const ROLL_LEFT = {"top" : ROTATE_LEFT, "bottom" : ROTATE_RIGHT, "right" : ROTATE_RIGHT,"left" : SHOOT };
 
 const MOVE_UP = {
     "top": ADVANCE,
@@ -59,7 +63,7 @@ function moveTowardsPoint(body, pointX, pointY) {
     if (canShoot){
         return SHOOT;
       }
-    return plannedAction
+    return plannedAction;
 }
 
 function backUpShit(body){
