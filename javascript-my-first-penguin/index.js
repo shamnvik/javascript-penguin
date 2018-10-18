@@ -70,20 +70,22 @@ function doMove(body){
   var highestPriority = 100;
   var nextMove = PASS;
 
-  priorities.push(priorityWeaponRange(body));
-  priorities.push(priorityStrength());
-  priorities.push(priorityWeaponDamage());
-  priorities.push(priorityStrength());
-  priorities.push(priorityFire());
-  priorities.push(priorityEnemy());
-  priorities.push(priorityEvade());
+  nextMove = MOVE_DOWN[body.you.direction];
 
-  for each (var priority in priorities){
-    if(priority[0] < highestPriority){
-      highestPriority = priority[0];
-      nextMove = priority[1];
-    }
-  }
+  // priorities.push(priorityWeaponRange(body));
+  // priorities.push(priorityStrength());
+  // priorities.push(priorityWeaponDamage());
+  // priorities.push(priorityStrength());
+  // priorities.push(priorityFire());
+  // priorities.push(priorityEnemy());
+  // priorities.push(priorityEvade());
+  //
+  // for each (var priority in priorities){
+  //   if(priority[0] < highestPriority){
+  //     highestPriority = priority[0];
+  //     nextMove = priority[1];
+  //   }
+  // }
   return nextMove;
 }
 
@@ -231,6 +233,8 @@ function priorityFire(body){
 
   return returnValue;
 }
+
+
 
 function escapeFire(body){
   var my = body.you;

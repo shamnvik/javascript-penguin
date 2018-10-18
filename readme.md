@@ -33,7 +33,7 @@ function priorityHealth()
   -> int: prioritering
   -> String : kommando
 
-function priorityFire() -Sondre
+function priorityFire() - Sondre
   -> int: prioritering
   -> String : kommando
 
