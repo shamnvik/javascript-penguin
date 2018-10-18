@@ -247,7 +247,7 @@ function priorityWeaponRange(body){
     }
   }
 
-  for (i = 0; i < bonusTiles.length; i++){
+  for (i = 0; i < rangeBonusPriority.length; i++){
     var rangeBonus = rangeBonusPriority[i];
     if(rangeBonus[0] < highestPriority){
       highestPriority = rangeBonus[0];
