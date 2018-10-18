@@ -122,24 +122,24 @@ function infoReceived() {
 }
 
 function priorityWeaponRange(body){
-  var bonusTiles = body.bonusTiles;
-  var rangeBonusPriority = [];
-  var returnValue = [];
-
-  for each (var bonus in bonusTiles){
-    if(bonus.type === "weapon-range"){
-      var priority = 0; //TODO
-      //priority = distance(body, body.enemies.[0].x, body.enemies.[0].y); //TODO
-      priority = priority * 10;
-
-
-      rangeBonusPriority.push(priority);
-      rangeBonusPriority.push(bonus);
-
-    }
-  }
-
-  var highestPriority = 100;
+  // var bonusTiles = body.bonusTiles;
+  // var rangeBonusPriority = [];
+  // var returnValue = [];
+  //
+  // for each (var bonus in bonusTiles){
+  //   if(bonus.type === "weapon-range"){
+  //     var priority = 0; //TODO
+  //     //priority = distance(body, body.enemies.[0].x, body.enemies.[0].y); //TODO
+  //     priority = priority * 10;
+  //
+  //
+  //     rangeBonusPriority.push(priority);
+  //     rangeBonusPriority.push(bonus);
+  //
+  //   }
+  // }
+  //
+  // var highestPriority = 100;
   returnValue[0] = highestPriority;
   returnValue[1] = MOVE_UP[body.you.direction];
 
