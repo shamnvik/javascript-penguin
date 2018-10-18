@@ -74,7 +74,7 @@ function doMove(body){
 
 
 
-  //priorities.push(priorityWeaponRange(body));
+  priorities.push(priorityWeaponRange(body));
   // priorities.push(priorityStrength());
   // priorities.push(priorityWeaponDamage());
   // priorities.push(priorityStrength());
@@ -124,7 +124,7 @@ function infoReceived() {
 function priorityWeaponRange(body){
   // var bonusTiles = body.bonusTiles;
   // var rangeBonusPriority = [];
-   var returnValue = Array(2);
+   var returnValue = [];
   //
   // for each (var bonus in bonusTiles){
   //   if(bonus.type === "weapon-range"){
