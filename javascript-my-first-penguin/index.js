@@ -112,13 +112,13 @@ function doMove(body) {
   // nextMove = test[1];
 
 
-    for (i = 0; i < priorities.length; i++){
-      var priority = priorities[i];
-      if(priority[0] < highestPriority){
-        highestPriority = priority[0];
-        nextMove = priority[1];
-      }
+  for (i = 0; i < priorities.length; i++){
+    var priority = priorities[i];
+    if(priority[0] < highestPriority){
+      highestPriority = priority[0];
+      nextMove = priority[1];
     }
+  }
 
   return { command: nextMove};
 }
@@ -193,8 +193,8 @@ function infoReceived() {
 // }
 
 function priorityWeaponRange(body){
-  // var bonusTiles = body.bonusTiles;
-  // var rangeBonusPriority = [];
+   var bonusTiles = body.bonusTiles;
+   var rangeBonusPriority = [];
    var returnValue = [];
   //
   // for each (var bonus in bonusTiles){
@@ -210,7 +210,16 @@ function priorityWeaponRange(body){
   //   }
   // }
   //
-  var highestPriority = 1;
+
+      for (i = 0; i < bonusTiles.length; i++) {
+        var priority = 0;
+        rangeBonusPriority.push(priority);
+        rangeBonusPriority.push(MOVE_RIGHT[body.you.direction]); //TODO
+      }
+
+
+
+  var highestPriority = rangeBonusPriority[0][0];
   returnValue[0] = highestPriority;
   returnValue[1] = MOVE_UP[body.you.direction];
 
