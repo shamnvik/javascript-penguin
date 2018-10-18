@@ -81,16 +81,16 @@ function backUpShit(body){
   //offY > 0 -> down
 
   //dif < 0 = Y min.
-  var dif = Math.max(Math.abs(xOffset) - Math.abs(yOffset));
+  var dif = Math.abs(xOffset) - Math.abs(yOffset);
   var turnDir = body.you.direction;
 
-  if(dif > 0){
+  if(dif >= 0){
     //Want to check lef/right
     if (xOffset > 0){
       //He is right
       return ROLL_RIGHT[myDir];
     }
-    else if (xOffset < 0){
+    else if (xOffset <= 0){
       return ROLL_LEFT[myDir];
     }
   }
