@@ -66,7 +66,9 @@ function commandReceived(body) {
 
 function doMove(body){
 
-  var priorities = [];
+  var priorities = [
+    [],[]
+  ];
   var highestPriority = 100;
   var nextMove = PASS;
 
