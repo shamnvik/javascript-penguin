@@ -33,8 +33,15 @@ function moveTowardsPoint(body, pointX, pointY) {
     if (plannedAction === ADVANCE && wallInFrontOfPenguin(body)) {
         return SHOOT;
     }
+    if(body.enemies.length > 0){
+      plannedAction = backUpShit(body);
+    }
+    if (canShoot){
+        return SHOOT;
+      }
     return plannedAction
 }
+
 
 function doesCellContainWall(walls, x, y) {
     if (walls.find(wall => wall.x == x && wall.y == y)) {
@@ -296,24 +303,24 @@ function priorityWeaponRange(body){
 
 function canShoot(body){
     if(body.you.y == body.enemies.y){
-        if(body.you.x < body.enemies.x && body.you.direction == rigth) {
-          if((body.enemies.x - body.you.x) < 7){
+        if(body.you.x < body.enemies.x && body.you.direction == right) {
+          if((body.enemies.x - body.you.x) < body.you.weaponRange){
               return true;
           }
         }
       else if (body.you.x > body.enemies.x && body.you.direction == left){
-            if((body.you.x - body.enemies.x) < 7){
+            if((body.you.x - body.enemies.x) < body.you.weaponRange){
             return true;
           }
         }
     }
   else if (body.you.x == body.enemies.x){
       if(body.you.y < body.enemies.y && body.you.direction == down){
-        if((body.enemies.y - body.you.y) < 7){
+        if((body.enemies.y - body.you.y) < body.you.weaponRange){
           return true;
         }
         else if(body.you.y > body.enemies.y && body.you.direction == up){
-              if((body.you.y - body.enemies.y) < 7){
+              if((body.you.y - body.enemies.y) < body.you.weaponRange){
               return true;
             }
         }
