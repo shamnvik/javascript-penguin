@@ -68,25 +68,39 @@ function distanceTo(req, x, y){
                     distanceCount ++;
                 }
                 else{
+                    if (distX > 0 && doesCellContainWall(req.walls, currentX + 1, currentY)){
+                        currentY ++;
+                        distanceCount ++;
+                    }
+                    else if (distX < 0 && doesCellContainWall(req.walls, currentX - 1, currentY)){
+                        currentY ++;
+                        distanceCount ++;
+                    }
                     priority == 1;
                 }
             }
-            else if (distX < 0){
+            else if (distY < 0){
                 //try move north
                 if (!doesCellContainWall(req.walls, currentX, currentY + 1)){
                     currentY --;
                     distanceCount ++;
                 }
                 else{
+                    if (distX > 0 && doesCellContainWall(req.walls, currentX + 1, currentY)){
+                        currentY --;
+                        distanceCount ++;
+                    }
+                    else if (distX < 0 && doesCellContainWall(req.walls, currentX - 1, currentY)){
+                        currentY --;
+                        distanceCount ++;
+                    }
                     priority == 1;
                 }
             }
             else if (distX == 0) priority = 2;
             distY = y - currentY;
         }
-        distY = y - currentY;
     }
-
     return ;
 }
 
