@@ -201,8 +201,8 @@ function action(req) {
 
 
 function infoReceived() {
-    let penguinName = "Pingu";
-    let teamName = "Bouvet";
+    let penguinName = "Pungu";
+    let teamName = "Elfa Distrelek";
 
     return {
         name: penguinName,
