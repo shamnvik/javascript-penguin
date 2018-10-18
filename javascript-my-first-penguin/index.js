@@ -211,17 +211,21 @@ function priorityWeaponRange(body){
   // }
   //
 
-      // for (i = 0; i < bonusTiles.length; i++) {
-      //   var priority = bonusTiles[i];
-      //   rangeBonusPriority.push(0); //TODO
-      //   rangeBonusPriority.push(MOVE_RIGHT[body.you.direction]); //TODO
-      // }
+  for (i = 0; i < bonusTiles.length; i++) {
+    if(bonusTiles[i].type ==="weapon-range"){
+      var priority = 0;
+      rangeBonusPriority.push(bonusTiles[i].priority);
+      rangeBonusPriority.push(MOVE_RIGHT[body.you.direction]); //TODO
+
+    }
+  }
 
 
+  returnValue[0] = rangeBonusPriority[0];
+  returnValue[1] = rangeBonusPriority[1];
 
-  var highestPriority = rangeBonusPriority[0][0];
-  returnValue[0] = highestPriority;
-  returnValue[1] = MOVE_UP[body.you.direction];
+  // returnValue[0] = highestPriority;
+  // returnValue[1] = MOVE_UP[body.you.direction];
 
   // for each (var rangeBonus in rangeBonusPriority){
   //   if(rangeBonus[0] < highestPriority){
