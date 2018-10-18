@@ -135,9 +135,11 @@ function commandReceived(body) {
 }
 
 function doMove(body) {
+
+  response = moveTowardsCenterOfMap(body)
   return {
-    command: moveTowardsCenterOfMap(body);
-  }
+    command: response
+  };
   //
   //   var priorities = [];
   //   var highestPriority = 100;
@@ -169,9 +171,6 @@ function doMove(body) {
   //     highestPriority = priority[0];
   //     nextMove = priority[1];
   //   }
-  // }
-
-  return { command: nextMove};
 }
 
 
