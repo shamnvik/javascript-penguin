@@ -62,6 +62,43 @@ function moveTowardsPoint(body, pointX, pointY) {
     return plannedAction
 }
 
+function backUpShit(body){
+  var myX = body.you.x;
+  var myY = body.you.y;
+  var enX = body.enemies.x;
+  var enY = body.enemies.y;
+  var myDir = body.you.direction;
+  var enDir = body.enemies.direction;
+
+  //xOff > 0 -> right
+  var xOffset = enX - myX;
+  var yOffset = enY - myY;
+  //offY > 0 -> down
+
+  //dif < 0 = Y min.
+  var dif = Math.max(Math.abs(xOffset) - Math.abs(yOffset));
+  var turnDir = body.you.direction;
+
+  if(dif > 0){
+    //Want to check lef/right
+    if (xOffset > 0){
+      //He is right
+      return ROLL_RIGHT[myDir];
+    }
+    else if (xOffset < 0){
+      return ROLL_LEFT[myDir];
+    }
+  }
+  else if(dif < 0){
+    if (yOffset > 0){
+      return ROLL_DOWN[myDir];
+    }
+    else if(yOffset < 0){
+      return ROLL_UP[myDir];
+    }
+  }
+}
+
 
 function doesCellContainWall(walls, x, y) {
     if (walls.find(wall => wall.x == x && wall.y == y)) {
