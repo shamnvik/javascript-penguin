@@ -86,59 +86,13 @@ function commandReceived(body) {
     };
 }
 
-function doMove(body) {
+  function doMove(body) {
 
     var priorities = [];
     var highestPriority = 100;
     var nextMove = PASS;
 
-    priorities.push(priorityWeaponRange(body));
-    priorities.push(priorityStrength());
-    priorities.push(priorityWeaponDamage());
-    priorities.push(priorityStrength());
-    priorities.push(priorityFire());
-    priorities.push(priorityEnemy());
-    priorities.push(priorityEvade());
-
-    for each(var priority in priorities) {
-        if (priority[0] < highestPriority) {
-            highestPriority = priority[0];
-            nextMove = priority[1];
-        }
-    }
-    return nextMove;
-}
-
-function priorityWeaponRange(body) {
-    var bonusTiles = body.bonusTiles;
-    var weaponRangeBonus;
-    var rangeBonusPriority = [];
-    var returnValue = [];
-
-    for each(var bonus in bonusTiles) {
-        if (bonus.type === "weapon-range") {
-            var priority = 100;
-            priority = distance(body, body.enemies.[0].x, body.enemies.[0].y);
-            priority = priority * 10;
-
-            rangeBonusPriority.push([priority, bonus);
-        }
-    }
-
-    var highestPriority = 100;
-    for each(var rangeBonus in rangeBonusPriority) {
-        if (rangeBonus[0] < highestPriority) {
-            highestPriority = rangeBonus[0];
-            returnValue[0] = highestPriority;
-            returnValue[1] = findPathTo(body, bonus.x, bonus.y);
-        }
-    }
-
-    return returnValue;
-}
-
-module.exports = function(context, req) {
-  nextMove = MOVE_DOWN[body.you.direction];
+    nextMove = MOVE_DOWN[body.you.direction];
 
 
 
@@ -159,7 +113,7 @@ module.exports = function(context, req) {
 
 
   for (i = 0; i < priorities.length; i++){
-    var priority = priorities[0];
+    var priority = priorities[i];
     if(priority[0] < highestPriority){
       highestPriority = priority[0];
       nextMove = priority[1];
