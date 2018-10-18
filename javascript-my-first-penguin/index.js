@@ -60,7 +60,7 @@ function moveTowardsPoint(body, pointX, pointY) {
     if(body.enemies.length > 0){
       plannedAction = backUpShit(body);
     }
-    if (canShoot){
+    if (canShoot(body)){
         return SHOOT;
       }
     return plannedAction;
@@ -444,7 +444,7 @@ function infoReceived() {
 
 
 
-
+*/
 function canShoot(body){
     if(body.you.y == body.enemies.y){
         if(body.you.x < body.enemies.x && body.you.direction == right) {
@@ -471,4 +471,4 @@ function canShoot(body){
     }
   }
     return false;
-}*/
+}
