@@ -86,7 +86,7 @@ function doMove(body){
   //     nextMove = priority[1];
   //   }
   // }
-  return nextMove;
+  return { command: nextMove};
 }
 
 
