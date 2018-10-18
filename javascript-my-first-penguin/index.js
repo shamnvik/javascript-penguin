@@ -71,6 +71,8 @@ function doMove(body){
   var nextMove = PASS;
 
   nextMove = MOVE_DOWN[body.you.direction];
+  console.log("test");
+  alert("Testalert");
 
   priorities.push(priorityWeaponRange(body));
   // priorities.push(priorityStrength());
@@ -131,7 +133,10 @@ function priorityWeaponRange(body){
       //priority = distance(body, body.enemies.[0].x, body.enemies.[0].y); //TODO
       priority = priority * 10;
 
-      rangeBonusPriority.push([priority,bonus);
+
+      rangeBonusPriority.push(priority);
+      rangeBonusPriority.push(bonus);
+
     }
   }
 
