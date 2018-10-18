@@ -119,21 +119,21 @@ function infoReceived() {
     return {name: penguinName, team: teamName};
 }
 
-function priorityWeaponRange(body){
-  var bonusTiles = body.bonusTiles;
-  var weaponRangeBonus;
-  var rangeBonusPriority = [];
-  var returnValue = [];
-
-  for each (var bonus in bonusTiles){
-    if(bonus.type === "weapon-range"){
-      var priority = 100;
-      priority = distance(body, body.enemies.[0].x, body.enemies.[0].y);
-      priority = priority * 10;
-
-      rangeBonusPriority.push([priority,bonus);
-    }
-  }
+// function priorityWeaponRange(body){
+//   var bonusTiles = body.bonusTiles;
+//   var weaponRangeBonus;
+//   var rangeBonusPriority = [];
+//   var returnValue = [];
+//
+//   for each (var bonus in bonusTiles){
+//     if(bonus.type === "weapon-range"){
+//       var priority = 100;
+//       priority = distance(body, body.enemies.[0].x, body.enemies.[0].y);
+//       priority = priority * 10;
+//
+//       rangeBonusPriority.push([priority,bonus);
+//     }
+//   }
 //
 //   var highestPriority = 100;
 //   for each (var rangeBonus in rangeBonusPriority){
