@@ -57,9 +57,9 @@ function moveTowardsPoint(body, pointX, pointY) {
     if (plannedAction === ADVANCE && wallInFrontOfPenguin(body)) {
         return SHOOT;
     }
-    if(body.enemies.length > 0){
-      plannedAction = backUpShit(body);
-    }
+    // if(body.enemies.length > 0){
+    //   plannedAction = backUpShit(body);
+    // }
     if (false){
         return SHOOT;
       }
