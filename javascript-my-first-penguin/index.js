@@ -155,6 +155,7 @@ module.exports = function(context, req) {
       //   nextMove = priorities[i][1];
       // }
   var test = priorities[0];
+  nextMove = test[1];
 
 
   // for each (var priority in priorities){
