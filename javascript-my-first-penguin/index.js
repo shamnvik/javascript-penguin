@@ -71,8 +71,6 @@ function doMove(body){
   var nextMove = PASS;
 
   nextMove = MOVE_DOWN[body.you.direction];
-  console.log("test");
-  alert("Testalert");
 
   //priorities.push(priorityWeaponRange(body));
   // priorities.push(priorityStrength());
