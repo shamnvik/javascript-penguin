@@ -123,7 +123,6 @@ function infoReceived() {
 
 function priorityWeaponRange(body){
   var bonusTiles = body.bonusTiles;
-  var weaponRangeBonus;
   var rangeBonusPriority = [];
   var returnValue = [];
 
