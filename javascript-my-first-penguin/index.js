@@ -102,7 +102,7 @@ function backUpShit(body){
       return ROLL_UP[myDir];
     }
   }
-  return PASS;
+  return SHOOT;
 }
 
 
