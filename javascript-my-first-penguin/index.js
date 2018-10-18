@@ -66,7 +66,7 @@ function commandReceived(body) {
 
 function doMove(body){
 
-  var priorities = [];
+  var priorities = Array(2);
   var highestPriority = 100;
   var nextMove = PASS;
 
@@ -124,7 +124,7 @@ function infoReceived() {
 function priorityWeaponRange(body){
   // var bonusTiles = body.bonusTiles;
   // var rangeBonusPriority = [];
-  // var returnValue = [];
+   var returnValue = Array(2);
   //
   // for each (var bonus in bonusTiles){
   //   if(bonus.type === "weapon-range"){
