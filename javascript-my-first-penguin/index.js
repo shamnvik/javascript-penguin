@@ -203,39 +203,39 @@ function infoReceived() {
     };
 }
 
-function priorityEvade(req) {
-    let enemies = req.enemies;
-    let my = req.you;
-    var returnObject = {
-        "priority": 100,
-        "command": ADVANCE
-    }
-    if (enemies.length > 0) {
-        //are we in immediate danger?
-
-        for (var i = 0; i < enemies.length; i++) {
-            var enemy = req.enemies[i]
-            if (my.x == enemy.x || my.y == enemy.y) {
-                if (my.strength < enemy.strength) {
-                    var canBeShot = (my.x < enemy.x && enemy.direction ==
-                        LEFT) || (my.x > enemy.x && enemy.direction ==
-                        RIGHT) || (my.y < enemy.y && enemy.direction ==
-                        TOP) || (my.y < enemy.y && enemy.direction ==
-                        BOTTOM);
-                    if (canBeShot) {
-                        returnObject.priority = 1;
-                        if (wallInFrontOfPenguin) {
-                            returnObject.command = RETREAT;
-                        } else {
-                            returnObject.command = ADVANCE;
-                        }
-                    }
-                }
-            }
-        }
-    }
-    return [returnObject.priority, returnObject.command];
-}
+// function priorityEvade(req) {
+//     let enemies = req.enemies;
+//     let my = req.you;
+//     var returnObject = {
+//         "priority": 100,
+//         "command": ADVANCE
+//     }
+//     if (enemies.length > 0) {
+//         //are we in immediate danger?
+//
+//         for (var i = 0; i < enemies.length; i++) {
+//             var enemy = req.enemies[i]
+//             if (my.x == enemy.x || my.y == enemy.y) {
+//                 if (my.strength < enemy.strength) {
+//                     var canBeShot = (my.x < enemy.x && enemy.direction ==
+//                         LEFT) || (my.x > enemy.x && enemy.direction ==
+//                         RIGHT) || (my.y < enemy.y && enemy.direction ==
+//                         TOP) || (my.y < enemy.y && enemy.direction ==
+//                         BOTTOM);
+//                     if (canBeShot) {
+//                         returnObject.priority = 1;
+//                         if (wallInFrontOfPenguin) {
+//                             returnObject.command = RETREAT;
+//                         } else {
+//                             returnObject.command = ADVANCE;
+//                         }
+//                     }
+//                 }
+//             }
+//         }
+//     }
+//     return [returnObject.priority, returnObject.command];
+// }
 
 function priorityWeaponRange(body){
   // var bonusTiles = body.bonusTiles;
