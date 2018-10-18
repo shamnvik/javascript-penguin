@@ -141,15 +141,18 @@ function priorityWeaponRange(body){
   }
 
   var highestPriority = 100;
-  for each (var rangeBonus in rangeBonusPriority){
-    if(rangeBonus[0] < highestPriority){
-      highestPriority = rangeBonus[0];
-      returnValue[0] = highestPriority;
-      //returnValue[1] = findPathTo(body,bonus.x,bonus.y);//TODO
-      returnValue[1] = MOVE_UP[body.you.direction];
+  returnValue[0] = highestPriority;
+  returnValue[1] = MOVE_UP[body.you.direction];
 
-    }
-  }
+  // for each (var rangeBonus in rangeBonusPriority){
+  //   if(rangeBonus[0] < highestPriority){
+  //     highestPriority = rangeBonus[0];
+  //     returnValue[0] = highestPriority;
+  //     //returnValue[1] = findPathTo(body,bonus.x,bonus.y);//TODO
+  //     returnValue[1] = MOVE_UP[body.you.direction];
+  //
+  //   }
+  // }
 
   return returnValue;
 }
@@ -286,7 +289,7 @@ function priorityWeaponRange(body){
 
 
 function canShoot(body){
-    if(body.you.y == body.enemies.y){ 
+    if(body.you.y == body.enemies.y){
         if(body.you.x < body.enemies.x && body.you.direction == rigth) {
           if((body.enemies.x - body.you.x) < 7){
               return true;
