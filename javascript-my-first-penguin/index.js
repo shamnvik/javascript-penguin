@@ -72,7 +72,7 @@ function doMove(body){
 
   nextMove = MOVE_DOWN[body.you.direction];
 
-  // priorities.push(priorityWeaponRange(body));
+  //priorities.push(priorityWeaponRange(body));
   // priorities.push(priorityStrength());
   // priorities.push(priorityWeaponDamage());
   // priorities.push(priorityStrength());
@@ -86,7 +86,7 @@ function doMove(body){
   //     nextMove = priority[1];
   //   }
   // }
-  return {command: nextMove};
+  return { command: nextMove};
 }
 
 
@@ -127,11 +127,14 @@ function infoReceived() {
 //
 //   for each (var bonus in bonusTiles){
 //     if(bonus.type === "weapon-range"){
-//       var priority = 100;
-//       priority = distance(body, body.enemies.[0].x, body.enemies.[0].y);
+//       var priority = 0; //TODO
+//       //priority = distance(body, body.enemies.[0].x, body.enemies.[0].y); //TODO
 //       priority = priority * 10;
 //
-//       rangeBonusPriority.push([priority,bonus);
+//
+//       rangeBonusPriority.push(priority);
+//       rangeBonusPriority.push(bonus);
+//
 //     }
 //   }
 //
@@ -140,7 +143,9 @@ function infoReceived() {
 //     if(rangeBonus[0] < highestPriority){
 //       highestPriority = rangeBonus[0];
 //       returnValue[0] = highestPriority;
-//       returnValue[1] = findPathTo(body,bonus.x,bonus.y);
+//       //returnValue[1] = findPathTo(body,bonus.x,bonus.y);//TODO
+//       returnValue[1] = MOVE_UP[body.you.direction];
+//
 //     }
 //   }
 //
