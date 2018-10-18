@@ -58,6 +58,7 @@ function moveTowardsPoint(body, pointX, pointY) {
         return SHOOT;
     }
     if(body.enemies.length > 0){
+      console.log(body.enemies);
       plannedAction = backUpShit(body);
     }
     if (false){
