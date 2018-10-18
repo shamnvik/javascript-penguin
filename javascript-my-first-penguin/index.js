@@ -93,6 +93,7 @@ function backUpShit(body){
     else if (xOffset <= 0){
       return ROLL_LEFT[myDir];
     }
+    return PASS;
   }
   else if(dif < 0){
     if (yOffset > 0){
