@@ -263,3 +263,52 @@ function priorityWeaponRange(body){
 //   }
 //   return command;
 // }
+/*function priorityEnemy(body){
+  var returnObject = {
+        "priority" :  100,
+        "command"  :  PASS
+    }
+    var enemy = body.enemies;
+    var my = body.you;
+    if(canShoot && my.strength > enemy.strength){
+      returnObject.priority = 1;
+      returnObject.command = shoot;
+    }
+    else if(canShoot && my.strength < enemy.strength){
+      returnObject.priority = 50;
+      returnObject.command = shoot;
+    }
+    else{
+      return returnObject;
+    }
+
+
+
+
+function canShoot(body){
+    if(body.you.y == body.enemies.y){ 
+        if(body.you.x < body.enemies.x && body.you.direction == rigth) {
+          if((body.enemies.x - body.you.x) < 7){
+              return true;
+          }
+        }
+      else if (body.you.x > body.enemies.x && body.you.direction == left){
+            if((body.you.x - body.enemies.x) < 7){
+            return true;
+          }
+        }
+    }
+  else if (body.you.x == body.enemies.x){
+      if(body.you.y < body.enemies.y && body.you.direction == down){
+        if((body.enemies.y - body.you.y) < 7){
+          return true;
+        }
+        else if(body.you.y > body.enemies.y && body.you.direction == up){
+              if((body.you.y - body.enemies.y) < 7){
+              return true;
+            }
+        }
+    }
+  }
+    return false;
+}*/
