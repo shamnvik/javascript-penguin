@@ -159,27 +159,27 @@ function infoReceived() {
 }
 
 function findPathTo(body, x, y){
-    var my = body.you; 
+    var my = body.you;
     if (my.x < x){
         if (MOVE_RIGHT[my.direction] == ADVANCE && wallInFrontOfBody()){
-            return SHOOT 
+            return SHOOT
         }
     return MOVE_RIGHT[my.direction]
-       
+
     }else if (my.x > x) {
         if (MOVE_LEFT[my.direction] == ADVANCE && wallInFrontOfBody()){
-            return SHOOT 
+            return SHOOT
         }
         return MOVE_LEFT[my.direction]
     }
     if (my.y < y){
         if (MOVE_DOWN[my.direction] == ADVANCE && wallInFrontOfBody()){
-            return SHOOT 
+            return SHOOT
         }
         return MOVE_DOWN[my.direction]
-    }else if (my.y > y) { 
+    }else if (my.y > y) {
         if (MOVE_UP[my.direction] == ADVANCE && wallInFrontOfBody()){
-            return SHOOT 
+            return SHOOT
         }
         return MOVE_LEFT[my.direction]
     }
@@ -240,7 +240,8 @@ function priorityWeaponRange(body){
   for (i = 0; i < bonusTiles.length; i++) {
     if(bonusTiles[i].type ==="weapon-range"){
       var priority = 0;
-      rangeBonusPriority.push(bonusTiles[i].priority);
+      // rangeBonusPriority.push(bonusTiles[i].priority);
+      rangeBonusPriority = 0;
       rangeBonusPriority.push(MOVE_RIGHT[body.you.direction]); //TODO
 
     }
