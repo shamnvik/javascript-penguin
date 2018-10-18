@@ -212,8 +212,8 @@ function priorityWeaponRange(body){
   //
 
       for (i = 0; i < bonusTiles.length; i++) {
-        var priority = 0;
-        rangeBonusPriority.push(priority);
+        var priority = bonusTiles[i];
+        rangeBonusPriority.push(0); //TODO
         rangeBonusPriority.push(MOVE_RIGHT[body.you.direction]); //TODO
       }
 
