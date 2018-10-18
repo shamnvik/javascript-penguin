@@ -83,9 +83,9 @@ function doMove(body){
   // priorities.push(priorityEvade());
   //
 
-      for (var i = 0; i < priorities.length; i++) {
-        nextMove = priorities[i][1];
-      }
+      // for (var i = 0; i < priorities.length; i++) {
+      //   nextMove = priorities[i][1];
+      // }
 
 
 
