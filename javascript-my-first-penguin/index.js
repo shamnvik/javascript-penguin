@@ -211,11 +211,11 @@ function priorityWeaponRange(body){
   // }
   //
 
-      for (i = 0; i < bonusTiles.length; i++) {
-        var priority = bonusTiles[i];
-        rangeBonusPriority.push(0); //TODO
-        rangeBonusPriority.push(MOVE_RIGHT[body.you.direction]); //TODO
-      }
+      // for (i = 0; i < bonusTiles.length; i++) {
+      //   var priority = bonusTiles[i];
+      //   rangeBonusPriority.push(0); //TODO
+      //   rangeBonusPriority.push(MOVE_RIGHT[body.you.direction]); //TODO
+      // }
 
 
 
