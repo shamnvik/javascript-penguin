@@ -61,7 +61,7 @@ function moveTowardsPoint(body, pointX, pointY) {
       console.log(body.enemies);
       plannedAction = backUpShit(body);
     }
-    if (false){
+    if (canShoot(body)){
         return SHOOT;
       }
     return plannedAction;
@@ -447,30 +447,30 @@ function infoReceived() {
 
 
 */
-// function canShoot(body){
-//     if(body.you.y == body.enemies.y){
-//         if(body.you.x < body.enemies.x && body.you.direction == right) {
-//           if((body.enemies.x - body.you.x) < body.you.weaponRange){
-//               return true;
-//           }
-//         }
-//       else if (body.you.x > body.enemies.x && body.you.direction == left){
-//             if((body.you.x - body.enemies.x) < body.you.weaponRange){
-//             return true;
-//           }
-//         }
-//     }
-//   else if (body.you.x == body.enemies.x){
-//       if(body.you.y < body.enemies.y && body.you.direction == down){
-//         if((body.enemies.y - body.you.y) < body.you.weaponRange){
-//           return true;
-//         }
-//         else if(body.you.y > body.enemies.y && body.you.direction == up){
-//               if((body.you.y - body.enemies.y) < body.you.weaponRange){
-//               return true;
-//             }
-//         }
-//     }
-//   }
-//     return false;
-// }
+function canShoot(body){
+    if(body.you.y == body.enemies.y){
+        if(body.you.x < body.enemies.x && body.you.direction == right) {
+          if((body.enemies.x - body.you.x) < body.you.weaponRange){
+              return true;
+          }
+        }
+      else if (body.you.x > body.enemies.x && body.you.direction == left){
+            if((body.you.x - body.enemies.x) < body.you.weaponRange){
+            return true;
+          }
+        }
+    }
+  else if (body.you.x == body.enemies.x){
+      if(body.you.y < body.enemies.y && body.you.direction == down){
+        if((body.enemies.y - body.you.y) < body.you.weaponRange){
+          return true;
+        }
+        else if(body.you.y > body.enemies.y && body.you.direction == up){
+              if((body.you.y - body.enemies.y) < body.you.weaponRange){
+              return true;
+            }
+        }
+    }
+  }
+    return false;
+}
